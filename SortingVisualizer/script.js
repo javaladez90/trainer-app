@@ -42,7 +42,7 @@ function bubbleSort(arr) {
                     displayArray(arr, [j, j + 1], 'swapped');
                 }
                 setTimeout(() => sortStep(i, j + 1), delay);
-                delay += 1;
+                delay += .01;
             } else {
                 setTimeout(() => sortStep(i + 1, 0), delay);
             }
