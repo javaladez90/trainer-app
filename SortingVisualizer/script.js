@@ -1,6 +1,15 @@
 const arrayContainer = document.getElementById('array-container');
+const arraySizeValue = document.getElementById('array-size-value');
+let currentArray = [];
+let arraySize = 50;
 
-function generateArray(numElements = 50) {
+function updateArraySize(size) {
+    arraySize = size;
+    arraySizeValue.textContent = size;
+    generateArray();
+}
+
+function generateArray(numElements = arraySize) {
     const arr = [];
     for (let i = 0; i < numElements; i++) {
         arr.push(Math.floor(Math.random() * 100) + 1);
@@ -22,7 +31,7 @@ function displayArray(arr, highlightedIndexes = [], className = '') {
     });
 }
 
-let currentArray = [];
+
 
 function startSorting(algorithm) {
     currentArray = generateArray(); // Store the array to sort
@@ -147,7 +156,7 @@ function quickSort(arr) {
         if (low < high) {
             let pi = partition(low, high);
             setTimeout(() => sort(low, pi - 1), delay);
-            delay += 0.1;
+            delay += 25;
             setTimeout(() => sort(pi + 1, high), delay);
         } else {
             setTimeout(() => displayArray(arr), delay);
