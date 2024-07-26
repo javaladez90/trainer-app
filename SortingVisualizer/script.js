@@ -1,7 +1,20 @@
 const arrayContainer = document.getElementById('array-container');
+const treeContainer = document.getElementById('tree-container');
 const arraySizeValue = document.getElementById('array-size-value');
 let currentArray = [];
 let arraySize = 50;
+
+function toggleFeature(feature) {
+    const barChartSection = document.getElementById('bar-chart-section');
+    const treeSection = document.getElementById('tree-section');
+    if (feature === 'bar') {
+        barChartSection.style.display = 'block';
+        treeSection.style.display = 'none';
+    } else if (feature === 'tree') {
+        barChartSection.style.display = 'none';
+        treeSection.style.display = 'block';
+    }
+}
 
 function updateArraySize(size) {
     arraySize = size;
