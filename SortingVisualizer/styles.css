@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #2d2d2d;
     color: #f0f0f0;
 }
@@ -14,7 +14,7 @@ body {
     background: #3c3c3c;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
@@ -23,10 +23,9 @@ h1 {
     color: #f0f0f0;
 }
 
-#array-container, #tree-container {
+#array-container {
     display: flex;
     align-items: flex-end;
-    justify-content: center;
     height: 300px;
     width: 100%;
     background-color: #444444;
@@ -34,7 +33,6 @@ h1 {
     padding: 10px;
     border: 1px solid #555555;
     margin-bottom: 20px;
-    position: relative; /* Important for absolute positioning of nodes */
 }
 
 .array-bar {
@@ -44,27 +42,8 @@ h1 {
     transition: height 0.3s ease-out, background-color 0.3s ease;
 }
 
-.node {
-    display: inline-block;
-    padding: 10px;
-    border-radius: 50%;
-    background-color: #4CAF50;
-    color: white;
-    margin: 5px;
-    position: absolute; /* Required for positioning nodes */
-    transition: background-color 0.3s;
-}
-
-.edge {
-    width: 2px;
-    height: 50px;
-    background-color: #f0f0f0;
-    position: absolute; /* Required for positioning edges */
-    transition: background-color 0.3s;
-}
-
 .testing {
-    background-color: cyan;
+    background-color: #ff9800;
 }
 
 .swapped {
