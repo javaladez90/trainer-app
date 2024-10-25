@@ -1,3 +1,5 @@
+import pandas as pd
+from st_aggrid import AgGrid, GridOptionsBuilder
 import streamlit as st 
 from client_management import add_client, view_clients, delete_client
 from initialization import initialize_db
@@ -9,7 +11,7 @@ initialize_db()
 st.title('Fuerza Fitness')
 
 # Sidebar menu for navigation 
-menu = ["Add Client", "View Client", "Delete Client"]
+menu = ["Add Client", "View Clients", "Delete Client"]
 choice = st.sidebar.selectbox("Menu", menu)
 
 if choice == "Add Client":
@@ -23,13 +25,12 @@ if choice == "Add Client":
     if st.button("Add Client"):
         if name:
             add_client(name, age, weight, goals)
-            st.success(f"Client '{name}' add successfully!")
+            
         else:
             st.error("Please enter a name.")
             
 elif choice == "View Clients":
     st.subheader("All Clients")
-    st.write("Attempting to view clients...")
     view_clients()
     
 elif choice == "Delete Client":

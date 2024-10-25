@@ -1,10 +1,6 @@
 import sqlite3
 import os
-
-def connect_db():
-    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'trainer_app.db')
-    print(f"Database path used for connection: {db_path}")  # Debug: Confirm the database path
-    return sqlite3.connect(db_path)
+from database_utils import connect_db
 
 def initialize_db():
     conn = connect_db()
