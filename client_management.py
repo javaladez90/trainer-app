@@ -21,6 +21,24 @@ def add_client(name, age, weight, goals):
     finally:
         conn.close()
 
+def get_client_id_by_username(username):
+    conn = connect_db()
+    cursor = conn.cursor()
+    try:
+        cursor.execute('''
+                       SELECT id FROM clients WHERE name = ?
+                       ''', (username,))
+        result = cursor.fetchone()
+        if result:
+            return result[0]
+        else:
+            return None
+    except sqlite3.Error as e:
+        print(f"Error retrieving client ID: {e}")
+        return None 
+    finally:
+        conn.close()
+        
 @st.cache_data(show_spinner=False, ttl=0)
 def fetch_all_clients():
     conn = connect_db()
